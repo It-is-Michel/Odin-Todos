@@ -27,4 +27,7 @@
   --font-size-title-h1: 1.5rem;
   --font-size-title-h2: 1.25rem;
   --font-size-title-h3: 1.15rem;
+
+  /* Define a unit used to keep a consistent size between the web's elements */
+  --unit: 0.5rem;
 }
