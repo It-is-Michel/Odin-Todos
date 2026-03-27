@@ -35,5 +35,7 @@
 }
 
 .header {
+  height: calc(var(--unit) * 6);
+
   background-color: var(--color-blue-space-hsl);
 }
