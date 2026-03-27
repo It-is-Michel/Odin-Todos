@@ -32,6 +32,14 @@
 
   /* Define a unit used to keep a consistent size between the web's elements */
   --unit: 0.5rem;
+
+  /* Element sizes */
+
+  --button-width-min: calc(var(--unit) * 6);
+  --button-height: calc(var(--unit) * 6);
+  
+  --button-tiny-width-min: calc(var(--unit) * 3)
+  --button-tiny-height: calc(var(--unit) * 3)
 }
 
 .header {
