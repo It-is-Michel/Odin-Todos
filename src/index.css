@@ -1,3 +1,5 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
 :root {
   /* Color variables */
   --color-blue-space-hsl: hsl(228, 74%, 53%);
