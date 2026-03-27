@@ -1,0 +1,25 @@
+:root {
+  /* Color variables */
+  --color-blue-space-hsl: hsl(228, 74%, 53%);
+  --color-apple-green-hsl: hsl(73, 93%, 48%);
+  --color-gold-hsl: hsl(45, 94%, 61%);
+  --color-apple-red-hsl: hsl(8, 100%, 68%);
+  --color-white-hsl: hsl(0, 0%, 98%);
+  --color-smoke-hsl: hsl(228, 19%, 95%);
+  --color-gray-hsl: hsl(184, 10%, 33%);
+  
+  --color-main-hsl: var(--color-blue-space-hsl);
+  --color-secondary-hsl: var(--color-gray-hsl);
+
+  --color-action-positive-hsl: var(--color-apple-green-hsl);
+  --color-action-negative-hsl: var(--color-apple-red-hsl);
+  --color-action-disabled-hsl: hsl(185, 9%, 75%);
+
+  --color-bg-lighter-hsl: var(--color-white-hsl);
+  --color-bg-light-hsl: var(--color-smoke-hsl);
+
+  --color-divisor: var(--color-gray-hsl);
+
+  --color-text-light: var(--color-white-hsl);
+  --color-text-dark: var(--color-gray-hsl);
+}
