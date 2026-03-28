@@ -57,13 +57,19 @@ class Todo {
 
   set subTasks(newSubTasks) {
     if (typeof newSubTasks !== "array") throw new Error("SubTasks must be an array.");
-    for (subTask of newSubTasks) {
+
+    const newSubTasksCopy = [];
+
+    newSubTasks.forEach((subTask) => {
       if (!(subTask instanceof Task)) throw new Error("SubTask must be Task.");
-    }
-    this.#subTasks = newSubTasks;
+
+      newSubTasksCopy.push(new Task(subTask.desc, subTask.type));
+    });
+    
+    this.#subTasks = newSubTasksCopy;
   }
   get subTasks() {
-    return this.#subTasks;
+    return new Task(this.#subTasks);
   }
 
   set note(newNote) {
