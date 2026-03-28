@@ -44,6 +44,16 @@ class Todo {
   get title() {
     return this.#title;
   }
+
+  set desc(newDesc) {
+    if (typeof newDesc !== string) throw new Error("Description must be a string.");
+    if (newDesc.length > 1000) throw new Error("Max description length is 1000 characters.");
+
+    this.#desc = newDesc;
+  }
+  get desc() {
+    return this.#desc;
+  }
 };
 
 export default Todo;
