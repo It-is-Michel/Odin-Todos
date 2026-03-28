@@ -1,3 +1,5 @@
+import { th } from "date-fns/locale";
+
 class TodoUI {
 
 };
@@ -74,6 +76,16 @@ class Todo {
   }
   get note() {
     return this.#note;
+  }
+
+  set successCriteria(newSuccessCriteria) {
+    if (typeof newSuccessCriteria !== "string") throw new Error("Success criteria must be a string.");
+    if (newSuccessCriteria.length > 1000) throw new Error("Max success criteria length is 1000 characters.");
+
+    this.#successCriteria = newSuccessCriteria;
+  }
+  get successCriteria() {
+    return this.#successCriteria;
   }
 };
 
