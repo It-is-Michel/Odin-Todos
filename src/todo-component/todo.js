@@ -122,8 +122,8 @@ class Todo {
     dueDateAlertsArray.forEach((alert) => {
       if (!(alert instanceof Alert)) throw new Error("dueDateAlerts can only contain instances of Alert.");
 
-      const alertCopy = new Alert(alert.message, alert.color, alert.alertOffset)
-      dueDateAlertsArrayClone.push(alertCopy);
+      const alertClone = new Alert(alert.message, alert.color, alert.alertOffset)
+      dueDateAlertsArrayClone.push(alertClone);
     });
 
     return dueDateAlertsArrayClone;
