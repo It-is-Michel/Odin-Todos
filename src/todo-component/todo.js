@@ -146,4 +146,53 @@ class Task{
   }
 }
 
+class Alert{
+  /** @type {string} */
+  #message;
+  /** @type {string} */
+  #color;
+  /** @type {Date} */
+  #alertOffset;
+
+  constructor(message = null, color = null, alertOffset = null) {
+    this.message = message;
+    this.color = color;
+    this.alertOffset = alertOffset;
+  }
+
+  set message(newMessage) {
+    if (typeof newMessage !== "string") throw new Error("Message must be a string.");
+    if (newMessage.length <= 0 || newMessage.length > 25) throw new Error("Max message length is 25 characters.");
+
+    this.#message = newMessage;
+  }
+  get message() {
+    return this.#message;
+  }
+
+  set color(newColor) {
+    if (typeof newColor !== "string") throw new Error("Color must be a string.");
+    // RegEx for hex (short form included), RGB and HSL color variables:
+    const colorRegex = /^(?:#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb\(\s*(?:25[0-5]|2[0-4]\d|1?\d?\d)\s*,\s*(?:25[0-5]|2[0-4]\d|1?\d?\d)\s*,\s*(?:25[0-5]|2[0-4]\d|1?\d?\d)\s*\)|hsl\(\s*(?:3[0-5]\d|[12]?\d?\d)\s*,\s*(?:100|[1-9]?\d)%\s*,\s*(?:100|[1-9]?\d)%\s*\))$/i;
+    if (!newColor.match(colorRegex)) throw new Error("Color must be a string representing a hexadecimal, RBG or HSL color variable (short hexadecimal form is allowed too).");
+
+    this.#color = newColor;
+  }
+  get color() {
+    return this.#color;
+  }
+
+  set alertOffset(newAlertOffset) {
+    if (!(newAlertOffset instanceof Date)) throw new Error("Alert offset must be instance of Date.");
+    if (isNaN(newAlertOffset.getTime())) throw new Error("Invalid date.");
+
+    const normalizedAlertOffset = new Date(newAlertOffset).setSeconds(0, 0);
+
+    this.#alertOffset = normalizedAlertOffset;
+  }
+  get alertOffset() {
+    return new Date(this.#alertOffset);
+  }
+}
+
 export default Todo;
