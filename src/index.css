@@ -54,3 +54,7 @@
 .header__settings-button {
   height: var(--button-height);
 }
+
+.icon {
+  width: var(--icon-width);
+}
