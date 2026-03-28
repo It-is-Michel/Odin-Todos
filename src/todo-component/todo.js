@@ -36,7 +36,7 @@ class Todo {
   }
 
   set title(newTitle) {
-    if (typeof newTitle !== string) throw new Error("Title must be a string.");
+    if (typeof newTitle !== "string") throw new Error("Title must be a string.");
     if (newTitle.length > 60) throw new Error("Max title length is 60 characters.");
 
     this.#title = newTitle;
@@ -46,7 +46,7 @@ class Todo {
   }
 
   set desc(newDesc) {
-    if (typeof newDesc !== string) throw new Error("Description must be a string.");
+    if (typeof newDesc !== "string") throw new Error("Description must be a string.");
     if (newDesc.length > 1000) throw new Error("Max description length is 1000 characters.");
 
     this.#desc = newDesc;
