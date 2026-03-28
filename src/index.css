@@ -53,6 +53,8 @@
 .header__detailed-view-button,
 .header__settings-button {
   height: var(--button-height);
+
+  min-width: var(--button-width-min);
 }
 
 .icon {
