@@ -56,6 +56,9 @@
   
   min-width: var(--button-width-min);
   padding: 0 calc(var(--unit) * 3);
+
+  background-color: transparent;
+  border: none;
 }
 
 .icon {
