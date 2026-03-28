@@ -47,6 +47,10 @@
 .header {
   background-color: var(--color-blue-space-hsl);
   border-bottom: 2px solid var(--color-gray-hsl);
+
+  padding: 0 calc(var(--unit) * 3);
+  display: flex;
+  justify-content: center;
 }
 
 .header__manage-projects-button,
@@ -59,6 +63,10 @@
 
   background-color: transparent;
   border: none;
+}
+
+.header__detailed-view-button {
+  margin-left: auto;
 }
 
 .icon {
