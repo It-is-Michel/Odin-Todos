@@ -95,6 +95,19 @@ class Todo {
   get priority() {
     return this.#priority;
   }
+
+  set dueDate(newDueDate) {
+    if (!(newDueDate instanceof Date)) throw new Error("Due date must be instance of Date.");
+    if (isNaN(newDueDate.getTime())) throw new Error("Invalid date.");
+    if (newDueDate < new Date()) throw new Error("Due date cannot be in the past.");
+
+    const normalizedDueDate = new Date(newDueDate).setSeconds(0, 0);
+
+    this.#dueDate = normalizedDueDate;
+  }
+  get dueDate() {
+    return new Date(this.#dueDate);
+  }
 };
 
 class Task{
