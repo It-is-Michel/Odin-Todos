@@ -40,6 +40,8 @@
   
   --button-tiny-width-min: calc(var(--unit) * 3);
   --button-tiny-height: calc(var(--unit) * 3);
+
+  --icon-width: calc(var(--unit) * 3);
 }
 
 .header {
