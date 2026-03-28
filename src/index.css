@@ -38,8 +38,8 @@
   --button-width-min: calc(var(--unit) * 6);
   --button-height: calc(var(--unit) * 6);
   
-  --button-tiny-width-min: calc(var(--unit) * 3)
-  --button-tiny-height: calc(var(--unit) * 3)
+  --button-tiny-width-min: calc(var(--unit) * 3);
+  --button-tiny-height: calc(var(--unit) * 3);
 }
 
 .header {
