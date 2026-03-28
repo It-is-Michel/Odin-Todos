@@ -1,0 +1,81 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+  /* Color variables */
+  --color-blue-space-hsl: hsl(228, 74%, 53%);
+  --color-apple-green-hsl: hsl(73, 93%, 48%);
+  --color-gold-hsl: hsl(45, 94%, 61%);
+  --color-apple-red-hsl: hsl(8, 100%, 68%);
+  --color-white-hsl: hsl(0, 0%, 98%);
+  --color-smoke-hsl: hsl(228, 19%, 95%);
+  --color-gray-hsl: hsl(184, 10%, 33%);
+  
+  --color-main-hsl: var(--color-blue-space-hsl);
+  --color-secondary-hsl: var(--color-gray-hsl);
+
+  --color-action-positive-hsl: var(--color-apple-green-hsl);
+  --color-action-negative-hsl: var(--color-apple-red-hsl);
+  --color-action-disabled-hsl: hsl(185, 9%, 75%);
+
+  --color-bg-lighter-hsl: var(--color-white-hsl);
+  --color-bg-light-hsl: var(--color-smoke-hsl);
+
+  --color-divisor: var(--color-gray-hsl);
+
+  --color-text-light: var(--color-white-hsl);
+  --color-text-dark: var(--color-gray-hsl);
+
+  /* Font size variables */
+  --font-size-title-h1: 1.5rem;
+  --font-size-title-h2: 1.25rem;
+  --font-size-title-h3: 1.15rem;
+
+  /* Define a unit used to keep a consistent size between the web's elements */
+  --unit: 0.75rem;
+
+  /* Element sizes */
+
+  --button-width-min: calc(var(--unit) * 6);
+  --button-height: calc(var(--unit) * 6);
+  
+  --button-tiny-width-min: calc(var(--unit) * 3);
+  --button-tiny-height: calc(var(--unit) * 3);
+
+  --icon-width: calc(var(--unit) * 3);
+}
+
+.header {
+  background-color: var(--color-blue-space-hsl);
+  border-bottom: 2px solid var(--color-gray-hsl);
+
+  padding: 0 calc(var(--unit) * 3);
+  display: flex;
+  justify-content: center;
+}
+
+.header__manage-projects-button,
+.header__detailed-view-button,
+.header__settings-button {
+  height: var(--button-height);
+  
+  min-width: var(--button-width-min);
+  padding: 0 calc(var(--unit) * 3);
+
+  background-color: transparent;
+  border: none;
+}
+
+.header__detailed-view-button {
+  margin-left: auto;
+}
+
+.header__manage-projects-button:hover,
+.header__detailed-view-button:hover,
+.header__settings-button:hover {
+  background-color: hsla(0, 100%, 100%, 0.1);
+  cursor: pointer;
+}
+
+.icon {
+  width: var(--icon-width);
+}
