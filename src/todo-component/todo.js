@@ -54,6 +54,17 @@ class Todo {
   get desc() {
     return this.#desc;
   }
+
+  set subTasks(newSubTasks) {
+    if (typeof newSubTasks !== "array") throw new Error("SubTasks must be an array.");
+    for (subTask of newSubTasks) {
+      if (!subTask instanceof Task) throw new Error("SubTask must be Task.");
+    }
+    this.#subTasks = newSubTasks;
+  }
+  get subTasks() {
+    return this.#subTasks;
+  }
 };
 
 class Task{
