@@ -129,10 +129,10 @@ class Todo {
     return dueDateAlertsArrayClone;
   }
 
-  #cloneSubTasks(subTasksClone) {
+  #cloneSubTasks(subTasks) {
     const subTasksClone = [];
 
-    subTasksClone.forEach((subTask) => {
+    subTasks.forEach((subTask) => {
       if (!(subTask instanceof Task)) throw new Error("Sub-task must be instance of Task.");
 
       subTasksClone.push(new Task(subTask.desc, subTask.type));
