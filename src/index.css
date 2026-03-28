@@ -44,4 +44,5 @@
 
 .header {
   background-color: var(--color-blue-space-hsl);
+  border-bottom: 2px solid var(--color-gray-hsl);
 }
