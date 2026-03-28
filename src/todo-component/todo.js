@@ -1,5 +1,3 @@
-import { th } from "date-fns/locale";
-
 class TodoUI {
 
 };
