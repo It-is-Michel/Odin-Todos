@@ -56,4 +56,34 @@ class Todo {
   }
 };
 
+class Task{
+  #desc;
+  #type;
+
+  constructor(desc, type) {
+    this.desc = desc;
+    this.type = type;
+  }
+
+  set desc(newDesc) {
+    if (typeof newDesc !== "string") throw new Error("Description must be a string.");
+    if (newDesc.length > 100) throw new Error("Max description length is 100 characters.");
+
+    this.#desc = newDesc;
+  }
+  get desc() {
+    return this.#desc;
+  }
+
+  set type(newType) {
+    if (typeof newType !== "string") throw new Error("Type must be a string.");
+    if (newType !== "check" && newType !== "range") throw new Error("Type must be 'check' or 'range'.");
+
+    this.#type = newType;
+  }
+  get type() {
+    return this.#type;
+  }
+}
+
 export default Todo;
