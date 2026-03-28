@@ -114,6 +114,28 @@ class Todo {
   get dueDate() {
     return new Date(this.#dueDate);
   }
+
+  set dueDateAlerts(newDueDateAlerts) {
+    if (typeof newDueDateAlerts !== "array") throw new Error("Due date alerts must be an array.");
+
+    this.#dueDateAlerts = this.#cloneDueDateAlerts(newDueDateAlerts);
+  }
+  get dueDateAlerts() {
+    return this.#cloneDueDateAlerts(this.#dueDateAlerts);
+  }
+
+  #cloneDueDateAlerts(dueDateAlertsArray) {
+    const dueDateAlertsArrayClone = [];
+
+    dueDateAlertsArray.forEach((alert) => {
+      if (!(alert instanceof Alert)) throw new Error("dueDateAlerts can only contain instances of Alert.");
+
+      const alertCopy = new Alert(alert.message, alert.color, alert.alertOffset)
+      dueDateAlertsArrayClone.push(alertCopy);
+    });
+
+    return dueDateAlertsArrayClone;
+  }
 };
 
 class Task{
