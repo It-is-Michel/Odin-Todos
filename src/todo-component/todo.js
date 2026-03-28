@@ -87,6 +87,16 @@ class Todo {
   get successCriteria() {
     return this.#successCriteria;
   }
+
+  set priority(newPriority) {
+    if (typeof newPriority !== "number") throw new Error("Priority must be a number.");
+    if (newPriority <= 0 || newPriority > 3) throw new Error("Priority must be a number between 1 and 3.");
+
+    this.#priority = newPriority;
+  }
+  get priority() {
+    return this.#priority;
+  }
 };
 
 class Task{
