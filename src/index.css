@@ -69,6 +69,12 @@
   margin-left: auto;
 }
 
+.header__manage-projects-button:hover,
+.header__detailed-view-button:hover,
+.header__settings-button:hover {
+  background-color: hsla(0, 100%, 100%, 0.1);
+}
+
 .icon {
   width: var(--icon-width);
 }
