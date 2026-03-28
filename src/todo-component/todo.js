@@ -34,6 +34,16 @@ class Todo {
     this.dueDate = todoData.dueDate;
     this.dueDateAlerts = todoData.dueDateAlerts;
   }
+
+  set title(newTitle) {
+    if (typeof newTitle !== string) throw new Error("Title must be a string.");
+    if (newTitle.length > 60) throw new Error("Max title length is 60 characters.");
+
+    this.#title = newTitle;
+  }
+  get title() {
+    return this.#title;
+  }
 };
 
 export default Todo;
