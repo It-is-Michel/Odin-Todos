@@ -73,6 +73,7 @@
 .header__detailed-view-button:hover,
 .header__settings-button:hover {
   background-color: hsla(0, 100%, 100%, 0.1);
+  cursor: pointer;
 }
 
 .icon {
