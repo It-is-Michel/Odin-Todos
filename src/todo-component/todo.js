@@ -18,10 +18,12 @@ class Todo {
   /** @type {boolean} */
   #done;
 
-  constructor() {
+  constructor(json = null) {
     this.#subtasks = [];
     this.#dueDateAlerts = [];
     this.#done = false;
+
+    if (json) this.fromJSON(json);
   }
 
   set title(newTitle) {
