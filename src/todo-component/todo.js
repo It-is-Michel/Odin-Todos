@@ -223,6 +223,10 @@ class Alert{
 
     return alertOffsetCopy;
   }
+
+  toJSON() {
+    return JSON.stringify([this.#message, this.#alertOffset, this.#color]);
+  }
 }
 
 export default Todo;
