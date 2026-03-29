@@ -173,6 +173,20 @@ class Todo {
 
     return JSON.stringify(json);
   }
+
+  fromJSON(json) {
+    const data = JSON.parse(json);
+
+    this.title = data.title;
+    this.desc = data.desc;
+    data.subtasks.forEach(taskJSON => this.addSubtask(taskJSON));
+    this.note = data.note;
+    this.successCriteria = data.successCriteria;
+    this.priority = data.priority;
+    this.dueDate = new Date(data.dueDate);
+    data.dueDateAlerts.forEach(alertJSON => this.addAlert(alertJSON));
+    this.#done = data.done;
+  }
 };
 
 class Task{
