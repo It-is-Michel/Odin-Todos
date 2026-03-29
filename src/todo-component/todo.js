@@ -159,9 +159,13 @@ class Task{
   #desc;
   #type;
 
-  constructor(desc, type) {
-    this.desc = desc;
-    this.type = type;
+  constructor(desc, type = null) {
+    if (type) {
+      this.desc = desc;
+      this.type = type;
+    } else {
+      this.fromJSON(desc);
+    }
   }
 
   set desc(newDesc) {
