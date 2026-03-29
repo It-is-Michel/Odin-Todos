@@ -130,8 +130,8 @@ class Todo {
 
   removeSubtask(index) {
     if (typeof index !== "number") throw new Error("Index must be a number.");
-    const maxSubtasksIndex = this.#subtasks.length - 1;
-    if (index < 0 || index > maxSubtasksIndex) throw new Error(`Index must be between 0 and ${maxSubtasksIndex}`);
+    const maxIndex = this.#subtasks.length - 1;
+    if (index < 0 || index > maxIndex) throw new Error(`Index must be between 0 and ${maxIndex}`);
 
     this.#subtasks.splice(index, 1);
   }
