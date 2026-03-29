@@ -94,10 +94,13 @@ class Todo {
   addAlert(message, alertOffset, color) {
     const newAlert = new Alert(message, alertOffset, color);
 
+    let alertIsDuplicated = false;
     this.#dueDateAlerts.forEach(alert => {
-      if (newAlert == alert) return false;
+      alertIsDuplicated = newAlert.equals(alert);
     });
 
+    if (alertIsDuplicated) return false;
+    
     this.#dueDateAlerts.push(newAlert);
     return true;
   }
@@ -250,8 +253,10 @@ class Alert{
     return this.#copyAlertOffset(this.#alertOffset);
   }
 
-  valueOf() {
-    return `message: ${this.#message}; alertOffset: ${this.#alertOffset}; color: ${this.#color}`;
+  equals(other) {
+    return this.#message == other.message
+      && JSON.stringify(this.#alertOffset) == JSON.stringify(other.alertOffset)
+      && this.#color == other.color;
   }
 
   #copyAlertOffset(alertOffset) {
