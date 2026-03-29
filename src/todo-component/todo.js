@@ -133,7 +133,7 @@ class Todo {
     const subtasksClone = [];
 
     subtasks.forEach((subtask) => {
-      if (!(subtask instanceof Task)) throw new Error("Sub-task must be instance of Task.");
+      if (!(subtask instanceof Task)) throw new Error("Subtask must be instance of Task.");
 
       subtasksClone.push(new Task(subtask.desc, subtask.type));
     });
