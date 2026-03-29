@@ -214,6 +214,10 @@ class Alert{
   get alertOffset() {
     return new Date(this.#alertOffset);
   }
+  
+  valueOf() {
+    return `message: ${this.#message}; color: ${this.#color}; alertOffset: ${this.#alertOffset}`;
+  }
 }
 
 export default Todo;
