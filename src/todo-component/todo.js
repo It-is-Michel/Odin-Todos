@@ -12,7 +12,7 @@ class Todo {
   /** @type {string} */
   #desc;
   /** @type {array} */
-  #subTasks;
+  #subtasks;
   /** @type {string} */
   #note;
   /** @type {string} */
@@ -27,7 +27,7 @@ class Todo {
   constructor(todoData) {
     this.title = todoData.title;
     if (todoData.desc) this.desc = todoData.desc;
-    if (todoData.subTasks) this.subTasks = todoData.subTasks;
+    if (todoData.subtasks) this.subtasks = todoData.subtasks;
     if (todoData.note) this.note = todoData.note;
     if (todoData.successCriteria) this.successCriteria = todoData.successCriteria;
     if (todoData.priority) this.priority = todoData.priority;
@@ -55,13 +55,13 @@ class Todo {
     return this.#desc;
   }
 
-  set subTasks(newSubTasks) {
-    if (typeof newSubTasks !== "array") throw new Error("SubTasks must be an array.");
+  set subtasks(newSubtasks) {
+    if (typeof newSubtasks !== "array") throw new Error("Subtasks must be an array.");
 
-    this.#subTasks = this.#cloneSubTasks(newSubTasks);
+    this.#subtasks = this.#cloneSubtasks(newSubtasks);
   }
-  get subTasks() {
-    return this.#cloneSubTasks(this.#subTasks);
+  get subtasks() {
+    return this.#cloneSubtasks(this.#subtasks);
   }
 
   set note(newNote) {
@@ -129,16 +129,16 @@ class Todo {
     return dueDateAlertsArrayClone;
   }
 
-  #cloneSubTasks(subTasks) {
-    const subTasksClone = [];
+  #cloneSubtasks(subtasks) {
+    const subtasksClone = [];
 
-    subTasks.forEach((subTask) => {
-      if (!(subTask instanceof Task)) throw new Error("Sub-task must be instance of Task.");
+    subtasks.forEach((subtask) => {
+      if (!(subtask instanceof Task)) throw new Error("Sub-task must be instance of Task.");
 
-      subTasksClone.push(new Task(subTask.desc, subTask.type));
+      subtasksClone.push(new Task(subtask.desc, subtask.type));
     });
     
-    return subTasksClone;
+    return subtasksClone;
   }
 };
 
