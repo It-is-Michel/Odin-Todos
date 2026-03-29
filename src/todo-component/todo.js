@@ -200,6 +200,13 @@ class Task{
     return this.#type;
   }
 
+  equals(other) {
+    return (
+      this.#desc == other.desc
+      && this.#type == other.type
+    );
+  }
+
   toJSON() {
     return JSON.stringify([this.#desc, this.#type]);
   }
