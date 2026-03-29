@@ -187,6 +187,13 @@ class Task{
   toJSON() {
     return JSON.stringify([this.#desc, this.#type]);
   }
+
+  fromJSON(json) {
+    const data = JSON.parse(json);
+
+    this.desc = data[0];
+    this.type = data[1];
+  }
 }
 
 class Alert{
