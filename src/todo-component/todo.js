@@ -126,8 +126,16 @@ class Todo {
       const json = desc;
       newTask = new Task(json);
     }
-    
+
+    let subtaskIsDuplicated = false;
+    this.#subtasks.forEach(subtask => {
+      subtaskIsDuplicated = subtask.equals(newTask);
+    });
+
+    if (subtaskIsDuplicated) return false;
+
     this.#subtasks.push(newTask);
+    return true;
   }
 
   removeSubtask(index) {
