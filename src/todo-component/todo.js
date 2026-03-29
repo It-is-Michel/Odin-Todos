@@ -209,9 +209,14 @@ class Alert{
   #color;
 
   constructor(message, alertOffset, color) {
-    this.message = message;
-    this.alertOffset = alertOffset;
-    this.color = color;
+    if (alertOffset) {
+      this.message = message;
+      this.alertOffset = alertOffset;
+      this.color = color;
+    } else {
+      const json = message;
+      this.fromJSON(json);
+    }
   }
 
   set message(newMessage) {
