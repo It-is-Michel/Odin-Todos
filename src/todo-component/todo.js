@@ -151,7 +151,7 @@ class Todo {
       json["dueDateAlerts"].push(alert.toJSON());
     });
 
-    return json;
+    return JSON.stringify(json);
   }
 };
 
