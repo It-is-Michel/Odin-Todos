@@ -20,13 +20,6 @@ class Todo {
 
   constructor(todoData) {
     this.title = todoData.title;
-    if (todoData.desc) this.desc = todoData.desc;
-    if (todoData.subtasks) this.subtasks = todoData.subtasks;
-    if (todoData.note) this.note = todoData.note;
-    if (todoData.successCriteria) this.successCriteria = todoData.successCriteria;
-    if (todoData.priority) this.priority = todoData.priority;
-    if (todoData.dueDate) this.dueDate = todoData.dueDate;
-    if (todoData.dueDateAlerts) this.dueDateAlerts = todoData.dueDateAlerts;
   }
 
   set title(newTitle) {
