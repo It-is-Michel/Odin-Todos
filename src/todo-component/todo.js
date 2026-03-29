@@ -19,6 +19,7 @@ class Todo {
   #done;
 
   constructor(todoData) {
+    this.#done = false;
     this.title = todoData.title;
   }
 
