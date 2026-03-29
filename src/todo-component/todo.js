@@ -277,9 +277,9 @@ class Alert{
   fromJSON(json) {
     const data = JSON.parse(json);
 
-    this.message = data.message;
-    this.alertOffset = data.alertOffset;
-    this.color = data.color;
+    this.message = data[0];
+    this.alertOffset = data[1];
+    this.color = data[2];
   }
 }
 
