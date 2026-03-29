@@ -56,8 +56,8 @@ class Todo {
   }
 
   set note(newNote) {
-    if (typeof note !== "string") throw new Error("Note must be a string.");
-    if (note.length > 1000) throw new Error("Max note length is 1000 characters.");
+    if (typeof newNote !== "string") throw new Error("Note must be a string.");
+    if (newNote.length > 1000) throw new Error("Max note length is 1000 characters.");
 
     this.#note = newNote;
   }
