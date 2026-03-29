@@ -129,6 +129,30 @@ class Todo {
   toggleDone() {
     this.#done = !this.#done;
   }
+
+  toJSON() {
+    const JSON = {
+      title: this.#title,
+      desc: this.#desc,
+      subtasks: [],
+      note: this.#note,
+      successCriteria: this.#successCriteria,
+      priority: this.#priority,
+      dueDate: this.#dueDate,
+      dueDateAlerts: [],
+      done: this.#done,
+    };
+
+    this.#subtasks.forEach(task => {
+      JSON["subtasks"].push(task.toJSON());
+    });
+
+    this.#dueDateAlerts.forEach(alert => {
+      JSON["dueDateAlerts"].push(alert.toJSON());
+    });
+
+    return JSON;
+  }
 };
 
 class Task{
