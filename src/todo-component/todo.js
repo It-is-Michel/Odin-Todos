@@ -4,7 +4,7 @@ class Todo {
   /** @type {string} */
   #desc;
   /** @type {array} */
-  #subtasks = [];
+  #subtasks;
   /** @type {string} */
   #note;
   /** @type {string} */
@@ -14,11 +14,13 @@ class Todo {
   /** @type {Date} */
   #dueDate;
   /** @type {array} */
-  #dueDateAlerts = [];
+  #dueDateAlerts;
   /** @type {boolean} */
   #done;
 
   constructor(todoData) {
+    this.#subtasks = [];
+    this.#dueDateAlerts = [];
     this.#done = false;
     this.title = todoData.title;
   }
