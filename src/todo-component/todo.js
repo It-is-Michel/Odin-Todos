@@ -268,6 +268,14 @@ class Alert{
   toJSON() {
     return JSON.stringify([this.#message, this.#alertOffset, this.#color]);
   }
+
+  fromJSON(json) {
+    const data = JSON.parse(json);
+
+    this.message = data.message;
+    this.alertOffset = data.alertOffset;
+    this.color = data.color;
+  }
 }
 
 export default Todo;
