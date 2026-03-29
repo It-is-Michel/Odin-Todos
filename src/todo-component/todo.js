@@ -114,11 +114,20 @@ class Todo {
   }
 
   addSubtask(desc, type) {
-    if (typeof desc !== "string") throw new Error("Description must be a string.");
-    if (desc.length === 0) throw new Error("Description can't be empty.");
-    if (type !== "check" && type !== "range") throw new Error("Type must be 'check' or 'range.");
+    let newTask;
 
-    this.#subtasks.push(new Task(desc, type));
+    if (type) {
+      if (typeof desc !== "string") throw new Error("Description must be a string.");
+      if (desc.length === 0) throw new Error("Description can't be empty.");
+      if (type !== "check" && type !== "range") throw new Error("Type must be 'check' or 'range.");
+
+      newTask = new Task(desc, type);
+    } else {
+      const json = desc;
+      newTask = new Task(json);
+    }
+    
+    this.#subtasks.push(newTask);
   }
 
   removeSubtask(index) {
