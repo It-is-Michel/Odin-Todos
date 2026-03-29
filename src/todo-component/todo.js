@@ -85,6 +85,10 @@ class Todo {
     return new Date(this.#dueDate);
   }
 
+  get done() {
+    return this.#done;
+  }
+
   addAlert(message, alertOffset, color) {
     const newAlert = new Alert(message, alertOffset, color);
 
