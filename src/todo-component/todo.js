@@ -15,6 +15,8 @@ class Todo {
   #dueDate;
   /** @type {array} */
   #dueDateAlerts = [];
+  /** @type {boolean} */
+  #done;
 
   constructor(todoData) {
     this.title = todoData.title;
@@ -123,6 +125,10 @@ class Todo {
     if (index < 0 || index > maxIndex) throw new Error(`Index must be between 0 and ${maxIndex}`);
 
     this.#subtasks.splice(index, 1);
+  }
+
+  toggleDone() {
+    this.#done = !this.#done;
   }
 };
 
