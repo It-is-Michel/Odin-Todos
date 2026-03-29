@@ -18,11 +18,10 @@ class Todo {
   /** @type {boolean} */
   #done;
 
-  constructor(todoData) {
+  constructor() {
     this.#subtasks = [];
     this.#dueDateAlerts = [];
     this.#done = false;
-    this.title = todoData.title;
   }
 
   set title(newTitle) {
