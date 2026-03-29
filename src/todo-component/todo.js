@@ -172,7 +172,7 @@ class Alert{
   #message;
   /** @type {string} */
   #color;
-  /** @type {Date} */
+  /** @type {object} */
   #alertOffset;
 
   constructor(message = null, color = null, alertOffset = null) {
@@ -204,19 +204,32 @@ class Alert{
   }
 
   set alertOffset(newAlertOffset) {
-    if (!(newAlertOffset instanceof Date)) throw new Error("Alert offset must be instance of Date.");
-    if (isNaN(newAlertOffset.getTime())) throw new Error("Invalid date.");
+    if (typeof newAlertOffset !== "object") throw new Error("Alert offset must be an object.");
 
-    const normalizedAlertOffset = new Date(newAlertOffset).setSeconds(0, 0);
-
-    this.#alertOffset = normalizedAlertOffset;
+    this.#alertOffset = this.#copyAlertOffset(newAlertOffset);
   }
   get alertOffset() {
-    return new Date(this.#alertOffset);
+    return this.#copyAlertOffset(this.#alertOffset);
   }
-  
+
   valueOf() {
     return `message: ${this.#message}; color: ${this.#color}; alertOffset: ${this.#alertOffset}`;
+  }
+
+  #copyAlertOffset(alertOffset) {
+    const alertOffsetCopy = {
+      years: alertOffset.years ? alertOffset.years : 0,
+      months: alertOffset.months ? alertOffset.months : 0,
+      days: alertOffset.days ? alertOffset.days : 0,
+      hours: alertOffset.hours ? alertOffset.hours : 0,
+      minutes: alertOffset.minutes ? alertOffset.minutes : 0,
+    };
+
+    for (const key in alertOffsetCopy) {
+      if (alertOffsetCopy[key] < 0) throw new Error("Alert offset can't have negative values.");
+    }
+
+    return alertOffsetCopy;
   }
 }
 
