@@ -22,7 +22,7 @@ class Todo {
   /** @type {Date} */
   #dueDate;
   /** @type {array} */
-  #dueDateAlerts;
+  #dueDateAlerts = [];
 
   constructor(todoData) {
     this.title = todoData.title;
@@ -98,26 +98,23 @@ class Todo {
     return new Date(this.#dueDate);
   }
 
-  set dueDateAlerts(newDueDateAlerts) {
-    if (newDueDateAlerts instanceof Array) throw new Error("Due date alerts must be an array.");
+  addAlert(message, color, alertOffset) {
+    const newAlert = new Alert(message, color, alertOffset);
 
-    this.#dueDateAlerts = this.#cloneDueDateAlerts(newDueDateAlerts);
-  }
-  get dueDateAlerts() {
-    return this.#cloneDueDateAlerts(this.#dueDateAlerts);
-  }
-
-  #cloneDueDateAlerts(dueDateAlertsArray) {
-    const dueDateAlertsArrayClone = [];
-
-    dueDateAlertsArray.forEach((alert) => {
-      if (!(alert instanceof Alert)) throw new Error("dueDateAlerts can only contain instances of Alert.");
-
-      const alertClone = new Alert(alert.message, alert.color, alert.alertOffset)
-      dueDateAlertsArrayClone.push(alertClone);
+    this.#dueDateAlerts.forEach(alert => {
+      if (newAlert == alert) return false;
     });
 
-    return dueDateAlertsArrayClone;
+    this.#dueDateAlerts.push(newAlert);
+    return true;
+  }
+
+  removeAlert(index) {
+    if (typeof index !== "number") throw new Error("Index must be a number.");
+    const maxIndex = this.#dueDateAlerts.length - 1;
+    if (index < 0 || index > maxIndex) throw new Error(`Index must be between 0 and ${maxIndex}`);
+
+    this.#dueDateAlerts.splice(index, 1);
   }
 
   addSubtask(desc, type) {
