@@ -56,7 +56,7 @@ class Todo {
   }
 
   set subtasks(newSubtasks) {
-    if (typeof newSubtasks !== "array") throw new Error("Subtasks must be an array.");
+    if (!(newSubtasks instanceof Array)) throw new Error("Subtasks must be an array.");
 
     this.#subtasks = this.#cloneSubtasks(newSubtasks);
   }
