@@ -108,7 +108,7 @@ class Todo {
   }
 
   set dueDateAlerts(newDueDateAlerts) {
-    if (typeof newDueDateAlerts !== "array") throw new Error("Due date alerts must be an array.");
+    if (newDueDateAlerts instanceof Array) throw new Error("Due date alerts must be an array.");
 
     this.#dueDateAlerts = this.#cloneDueDateAlerts(newDueDateAlerts);
   }
