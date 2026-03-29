@@ -12,7 +12,7 @@ class Todo {
   /** @type {string} */
   #desc;
   /** @type {array} */
-  #subtasks;
+  #subtasks = [];
   /** @type {string} */
   #note;
   /** @type {string} */
@@ -53,15 +53,6 @@ class Todo {
   }
   get desc() {
     return this.#desc;
-  }
-
-  set subtasks(newSubtasks) {
-    if (!(newSubtasks instanceof Array)) throw new Error("Subtasks must be an array.");
-
-    this.#subtasks = this.#cloneSubtasks(newSubtasks);
-  }
-  get subtasks() {
-    return this.#cloneSubtasks(this.#subtasks);
   }
 
   set note(newNote) {
@@ -129,16 +120,20 @@ class Todo {
     return dueDateAlertsArrayClone;
   }
 
-  #cloneSubtasks(subtasks) {
-    const subtasksClone = [];
+  addSubtask(desc, type) {
+    if (typeof desc !== "string") throw new Error("Description must be a string.");
+    if (desc.length === 0) throw new Error("Description can't be empty.");
+    if (type !== "check" && type !== "range") throw new Error("Type must be 'check' or 'range.");
 
-    subtasks.forEach((subtask) => {
-      if (!(subtask instanceof Task)) throw new Error("Subtask must be instance of Task.");
+    this.#subtasks.push(new Task(desc, type));
+  }
 
-      subtasksClone.push(new Task(subtask.desc, subtask.type));
-    });
-    
-    return subtasksClone;
+  removeSubtask(index) {
+    if (typeof index !== "number") throw new Error("Index must be a number.");
+    const maxSubtasksIndex = this.#subtasks.length - 1;
+    if (index < 0 || index > maxSubtasksIndex) throw new Error(`Index must be between 0 and ${maxSubtasksIndex}`);
+
+    this.#subtasks.splice(index, 1);
   }
 };
 
