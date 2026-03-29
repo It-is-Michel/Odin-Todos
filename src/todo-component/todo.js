@@ -131,7 +131,7 @@ class Todo {
   }
 
   toJSON() {
-    const JSON = {
+    const json = {
       title: this.#title,
       desc: this.#desc,
       subtasks: [],
@@ -144,14 +144,14 @@ class Todo {
     };
 
     this.#subtasks.forEach(task => {
-      JSON["subtasks"].push(task.toJSON());
+      json["subtasks"].push(task.toJSON());
     });
 
     this.#dueDateAlerts.forEach(alert => {
-      JSON["dueDateAlerts"].push(alert.toJSON());
+      json["dueDateAlerts"].push(alert.toJSON());
     });
 
-    return JSON;
+    return json;
   }
 };
 
