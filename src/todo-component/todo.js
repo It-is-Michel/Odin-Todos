@@ -153,6 +153,10 @@ class Task{
   get type() {
     return this.#type;
   }
+
+  toJSON() {
+    return JSON.stringify([this.#desc, this.#type]);
+  }
 }
 
 class Alert{
