@@ -85,8 +85,8 @@ class Todo {
     return new Date(this.#dueDate);
   }
 
-  addAlert(message, color, alertOffset) {
-    const newAlert = new Alert(message, color, alertOffset);
+  addAlert(message, alertOffset, color) {
+    const newAlert = new Alert(message, alertOffset, color);
 
     this.#dueDateAlerts.forEach(alert => {
       if (newAlert == alert) return false;
@@ -162,15 +162,15 @@ class Task{
 class Alert{
   /** @type {string} */
   #message;
-  /** @type {string} */
-  #color;
   /** @type {object} */
   #alertOffset;
+  /** @type {string} */
+  #color;
 
-  constructor(message = null, color = null, alertOffset = null) {
+  constructor(message, alertOffset, color) {
     this.message = message;
-    this.color = color;
     this.alertOffset = alertOffset;
+    this.color = color;
   }
 
   set message(newMessage) {
@@ -205,7 +205,7 @@ class Alert{
   }
 
   valueOf() {
-    return `message: ${this.#message}; color: ${this.#color}; alertOffset: ${this.#alertOffset}`;
+    return `message: ${this.#message}; alertOffset: ${this.#alertOffset}; color: ${this.#color}`;
   }
 
   #copyAlertOffset(alertOffset) {
