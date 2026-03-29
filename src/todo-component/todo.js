@@ -1,11 +1,3 @@
-class TodoUI {
-
-};
-
-class TodoAlertService {
-
-};
-
 class Todo {
   /** @type {string} */
   #title;
